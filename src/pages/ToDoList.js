@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AddToDoListForm from '../components/ToDoList/ToDoListForm';
+import AddToDoListForm from '../components/ToDoList/AddToDoListForm';
 import ToDoListCard from '../components/ToDoList/ToDoListCard';
 
 const ToDolist = () => {
@@ -12,6 +12,13 @@ const ToDolist = () => {
     setToDoListState(toDoListStateCopy);
   };
 
+  const deleteToDoListHandler = (id) => {
+    const toDoListStateCopy = [...toDoListState];
+    const toDoIndex = toDoListStateCopy.findIndex((item) => item.id === id);
+    toDoListStateCopy.splice(toDoIndex, 1);
+    setToDoListState(toDoListStateCopy);
+  };
+
   return (
     <div>
       <AddToDoListForm addNewToDo={addToDoListHandler} />
@@ -20,7 +27,7 @@ const ToDolist = () => {
       {/* <ToDoListCard {...toDoListState} addToDoList={addToDoListHandler} /> */}
 
       {toDoListState.map((toDoListItem, index) => (
-        <ToDoListCard key={index} {...toDoListItem} />
+        <ToDoListCard key={index} {...toDoListItem} clickToDelete={() => deleteToDoListHandler(toDoListItem.id)} />
       ))}
     </div>
   );
