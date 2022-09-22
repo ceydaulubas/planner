@@ -30,17 +30,13 @@ const ToDolist = () => {
       <AddToDoListForm addNewToDo={addToDoListHandler} />
       <h5>What's the plan for compliting task today?</h5>
 
-      {/* <ToDoListCard {...toDoListState} addToDoList={addToDoListHandler} /> */}
-
       {toDoListState.map((toDoListItem, index) => (
-        <div>
-          <ToDoListCard
-            key={index}
-            {...toDoListItem}
-            clickToDelete={() => deleteToDoListHandler(index)}
-            clickToEdit={() => editTodDoListHandler(index)}
-          />
-        </div>
+        <ToDoListCard
+          key={index}
+          {...toDoListItem}
+          clickToDelete={() => deleteToDoListHandler(index)}
+          clickToEdit={() => editTodDoListHandler(index)}
+        />
       ))}
     </div>
   );
