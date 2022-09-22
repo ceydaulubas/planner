@@ -11,7 +11,6 @@ const AddToDoListForm = ({ addNewToDo }) => {
   const inputChangeHandler = (event) => {
     let { value, name } = event.target;
     setFormState({ ...formState, [name]: value });
-    console.log('event.target', event.target);
   };
 
   const handleFormSubmission = (event) => {

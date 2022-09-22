@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
 import AddToDoListForm from '../components/ToDoList/AddToDoListForm';
 import ToDoListCard from '../components/ToDoList/ToDoListCard';
+// import DeletePopup from '../components/Common/DeletePopup';
+import { Button, Modal } from 'react-bootstrap';
 
 const ToDolist = () => {
   const [toDoListState, setToDoListState] = useState([]);
 
-  // handle add new food to today's list
+  // handle add new tasks to today's list
   const addToDoListHandler = (newTaskToAdd) => {
     const toDoListStateCopy = [...toDoListState];
     toDoListStateCopy.push(newTaskToAdd);
     setToDoListState(toDoListStateCopy);
+    console.log('toDoListStateCopy', toDoListStateCopy);
   };
 
   const deleteToDoListHandler = (id) => {
     const toDoListStateCopy = [...toDoListState];
-    const toDoIndex = toDoListStateCopy.findIndex((item) => item.id === id);
-    toDoListStateCopy.splice(toDoIndex, 1);
+    toDoListStateCopy.splice(id, 1);
     setToDoListState(toDoListStateCopy);
+  };
+
+  const editTodDoListHandler = (id, event) => {
+    console.log('edit');
   };
 
   return (
@@ -27,7 +33,14 @@ const ToDolist = () => {
       {/* <ToDoListCard {...toDoListState} addToDoList={addToDoListHandler} /> */}
 
       {toDoListState.map((toDoListItem, index) => (
-        <ToDoListCard key={index} {...toDoListItem} clickToDelete={() => deleteToDoListHandler(toDoListItem.id)} />
+        <div>
+          <ToDoListCard
+            key={index}
+            {...toDoListItem}
+            clickToDelete={() => deleteToDoListHandler(index)}
+            clickToEdit={() => editTodDoListHandler(index)}
+          />
+        </div>
       ))}
     </div>
   );

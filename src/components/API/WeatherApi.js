@@ -27,7 +27,6 @@ const WeatherApi = () => {
         console.log('else');
       }
     } else {
-      console.log('true');
       setLoadingWeatherApi(true);
     }
   };
@@ -35,7 +34,6 @@ const WeatherApi = () => {
   useEffect(() => {
     if (!isCoordLoading) {
       getWeather();
-      console.log('forecastResult', forecastResult);
     }
   }, [isCoordLoading]);
 
