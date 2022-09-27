@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import DeletePopup from '../Common/DeletePopup';
+import EditList from './EditList';
 
 const TodoListCard = (props) => {
   const [deleteToggle, setDeleteToggle] = useState(false);
@@ -16,7 +17,7 @@ const TodoListCard = (props) => {
   return (
     <div className='box'>
       <p>Task: {props.task}</p>
-      {props.importancy ? <p>Importancy: {props.importancy}</p> : ''}
+      {props.importancy && <p>Importancy: {props.importancy}</p>}
       <Button variant='danger' size='sm' onClick={deletePopUp}>
         Delete
       </Button>
@@ -45,7 +46,7 @@ const TodoListCard = (props) => {
         />
       )}
 
-      <Button variant='primary' size='sm' onClick={props.clickToEdit}>
+      <Button variant='primary' size='sm' onClick={EditList}>
         Edit
       </Button>
     </div>

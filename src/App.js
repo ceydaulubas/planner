@@ -4,7 +4,7 @@ import ToDolist from './pages/ToDoList';
 import Profil from './pages/Profil';
 import Success from './pages/Success';
 import Calender from './pages/Calender';
-import WeatherApi from './components/API/WeatherApi';
+import Home from './pages/Home';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <NavBar />
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<WeatherApi />}></Route>
+          <Route path='/' element={<Home />}></Route>
           <Route path='ToDoList' element={<ToDolist />}></Route>
           <Route path='Calender' element={<Calender />}></Route>
           <Route path='Profil' element={<Profil />}></Route>

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import AddToDoListForm from '../components/ToDoList/AddToDoListForm';
+
 import ToDoListCard from '../components/ToDoList/ToDoListCard';
 // import DeletePopup from '../components/Common/DeletePopup';
-import { Button, Modal } from 'react-bootstrap';
+// import { Button, Modal } from 'react-bootstrap';
 
 const ToDolist = () => {
   const [toDoListState, setToDoListState] = useState([]);
   const [editToggle, setEditToggle] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   // handle add new tasks to today's list
   const addToDoListHandler = (newTaskToAdd) => {
@@ -24,9 +26,6 @@ const ToDolist = () => {
   const editTodDoListHandler = (id) => {
     setEditToggle(!editToggle);
     const toDoListStateCopy = [...toDoListState];
-    console.log('toDoListStateCopy.findIndex(id)', toDoListStateCopy);
-    console.log('id', id); //2
-    console.log('toDoListStateCopy[id]', toDoListStateCopy[id]);
   };
 
   return (
@@ -41,8 +40,6 @@ const ToDolist = () => {
             clickToDelete={() => deleteToDoListHandler(index)}
             clickToEdit={() => editTodDoListHandler(index)}
           />
-
-          {editToggle ? alert('edit') : console.log('none')}
         </div>
       ))}
     </div>
