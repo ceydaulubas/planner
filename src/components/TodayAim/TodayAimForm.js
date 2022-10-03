@@ -8,7 +8,6 @@ const initialAimState = {
 
 const TodayAimForm = ({ addNewTodayAim }) => {
   const [aimFormState, setAimFormState] = useState(initialAimState);
-  const [todayAimState, setTodayAimState] = useState([]);
 
   const handleInputChange = (event) => {
     let { value, name } = event.target;

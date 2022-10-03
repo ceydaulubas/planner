@@ -11,9 +11,14 @@ const TodayAim = () => {
   };
 
   return (
-    <div>
+    <div style={{ backgroundColor: 'silver' }}>
       {todayAimState.length === 0 && <TodayAimForm addNewTodayAim={addAimHandler} />}
-      {todayAimState.length === 1 && <p>{todayAimState[0].aim}</p>}
+      {todayAimState.length === 1 && (
+        <div>
+          <h5>Today's aim:</h5>
+          <p>{todayAimState[0].aim}</p>
+        </div>
+      )}
     </div>
   );
 };

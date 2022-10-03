@@ -38,7 +38,7 @@ const WeatherApi = () => {
   }, [isCoordLoading]);
 
   return (
-    <div>
+    <div style={{ backgroundColor: 'mistyrose' }}>
       {isLoadingWeatherApi && (
         <div>
           <Spinner animation='border' />

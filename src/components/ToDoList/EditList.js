@@ -21,7 +21,7 @@ const EditList = () => {
 
   return (
     <div>
-      <hr />
+      {/* <hr />
       <h3>Edit form</h3>
       <form onSubmit={EditFormSubmit}>
         <label htmlFor='title'>Task:</label>
@@ -35,7 +35,8 @@ const EditList = () => {
         </select>
 
         <input type='submit' value='Submit' />
-      </form>
+      </form> */}
+      edit
     </div>
   );
 };
