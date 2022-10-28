@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import DeletePopup from '../Common/DeletePopup';
 import EditList from './EditList';
+import { Link } from 'react-router-dom';
 
 const TodoListCard = (props) => {
   const [deleteToggle, setDeleteToggle] = useState(false);
+  const [editToggle, setEditToggle] = useState(false);
 
   const deletePopUp = () => {
     setDeleteToggle(true);
@@ -12,6 +14,10 @@ const TodoListCard = (props) => {
 
   const toggleDeleteAssetPopup = () => {
     setDeleteToggle(!deleteToggle);
+  };
+
+  const toggleEditAssetPopup = () => {
+    setEditToggle(!editToggle);
   };
 
   return (
@@ -46,9 +52,31 @@ const TodoListCard = (props) => {
         />
       )}
 
-      <Button variant='primary' size='sm' onClick={EditList}>
+      <Button variant='primary' size='sm' onClick={deletePopUp}>
         Edit
       </Button>
+
+      {editToggle && (
+        <DeletePopup
+          content={
+            <>
+              <Modal.Dialog>
+                <Modal.Body>
+                  <p>
+                    You are editing <b>{props.task} </b>. Are you sure?
+                  </p>
+                </Modal.Body>
+                <Modal.Footer>
+                  <Button variant='secondary' onClick={toggleEditAssetPopup}>
+                    Close
+                  </Button>
+                  <Button variant='danger'>Edit</Button>
+                </Modal.Footer>
+              </Modal.Dialog>
+            </>
+          }
+        />
+      )}
     </div>
   );
 };
