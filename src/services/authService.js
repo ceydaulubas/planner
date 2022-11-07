@@ -16,8 +16,9 @@ class AuthService {
   };
 
   // Method to use in our Login component
-  login = async (name, password) => {
-    return this.service.post('/login', { name, password }).then((response) => response.data);
+  login = async (email, password) => {
+    console.log('login');
+    return this.service.post('/login', { email, password }).then((response) => response.data);
   };
 }
 

@@ -42,6 +42,9 @@ const WeatherApi = () => {
       {isLoadingWeatherApi && (
         <div>
           <Spinner animation='border' />
+          <p>
+            <b>Please give allowance to this site to access your location to see the air forecast</b>{' '}
+          </p>
           <p>{datum}</p>
           <p>{month}</p>
           <p>{year}</p>

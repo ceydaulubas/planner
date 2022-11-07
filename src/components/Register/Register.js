@@ -69,15 +69,8 @@ const Register = () => {
       <BackgroundBox clicked={click}>
         <Form className='signin' onSubmit={handleLogInFormSubmit}>
           <Title>Sign In</Title>
-          <Input type='email' name='email' id='emailId' placeholder='Email' value={signupState.email} onChange={handleLogInInputChange} />
-          <Input
-            type='password'
-            name='password'
-            id='passwordId'
-            placeholder='Password'
-            value={signupState.password}
-            onChange={handleLogInInputChange}
-          />
+          <Input type='email' name='email' placeholder='Email' value={loginState.email} onChange={handleLogInInputChange} />
+          <Input type='password' name='password' placeholder='Password' value={loginState.password} onChange={handleLogInInputChange} />
           <Button>Sign In</Button>
         </Form>
 

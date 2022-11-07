@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { FormBox, FormAddButton } from '../../styles/ToDoListStyle';
 
 const initialState = {
   task: '',
@@ -23,19 +23,19 @@ const AddToDoListForm = ({ addNewToDo }) => {
     setFormState(initialState);
   };
   return (
-    <div>
+    <FormBox>
       <form onSubmit={handleFormSubmission}>
         <input type='text' name='task' value={formState.task} placeholder='Add To Do' onChange={inputChangeHandler} />
 
-        <select name='importancy' placeholder='Select the Importancy' value={formState.importancy} onChange={inputChangeHandler}>
+        <select name='importancy' value={formState.importancy} onChange={inputChangeHandler}>
           <option> Pick the Importancy Level</option>
           <option value='High Importancy'>High Importancy</option>
           <option value='Middle Importancy'>Middle Importancy</option>
           <option value='Low Importancy'>Low Importancy</option>
         </select>
-        <button>Add</button>
+        <FormAddButton>Add</FormAddButton>
       </form>
-    </div>
+    </FormBox>
   );
 };
 
